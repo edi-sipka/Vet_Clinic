@@ -45,3 +45,29 @@ ALTER TABLE animals
 ADD CONSTRAINT owner_id
 FOREIGN KEY (owner_id)
 REFERENCES owners(id);
+
+-- Create a table named vets with the following columns: 
+
+CREATE TABLE vets (
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	name VARCHAR ( 50 )  NOT NULL,
+	age INT,
+	date_of_graduation DATE NOT NULL
+);
+
+-- Created table called specializations with many to many relationship with vets and species -- 
+
+
+CREATE TABLE specializations (
+vets_id BIGINT REFERENCES vets (id),
+species_id BIGINT REFERENCES species (id)
+);
+
+-- Created table called visits with many to many relationship with animals, vets and date of visits-- 
+ 
+
+CREATE TABLE visits (
+vets_id BIGINT REFERENCES vets (id),
+animals_id BIGINT REFERENCES animals (id)
+date_of_visit DATE NOT NULL
+);
