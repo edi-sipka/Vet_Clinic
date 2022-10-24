@@ -71,3 +71,6 @@ vets_id BIGINT REFERENCES vets (id),
 animals_id BIGINT REFERENCES animals (id)
 date_of_visit DATE NOT NULL
 );
+
+-- Performance -- 
+CREATE INDEX ON owners (email);
