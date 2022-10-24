@@ -19,6 +19,9 @@ INSERT INTO owners (full_name, age) VALUES ('Sam Smith', '34'),('Jennifer Orwell
 	('Dean Winchester', '14'),
 	('Jodie Whittaker', '38');
 
+	-- Insert email data to owners table -- 
+	ALTER TABLE owners ADD COLUMN email VARCHAR(120); 
+
 -- Insert data into species table -- 
 INSERT INTO species(name)VALUES('Pokemon','Digimon');
 
@@ -70,3 +73,12 @@ VALUES
 	('9', '2', date '2020-08-03'),
 	('10', '3', date '2020-05-24'),
 	('10', '1', date '2021-01-11');	
+
+
+-- Insert new visits and data -- 
+INSERT INTO visits (animal_id, vet_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+-- Insert new owners and emails-- 
+insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+
+ALTER TABLE owners ALTER COLUMN age INT NOT NULL;

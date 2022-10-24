@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS species;
 CREATE TABLE owners (
 	id SERIAL PRIMARY KEY,
 	full_name VARCHAR (50) NOT NULL,
-	age INT NOT NULL
+	age INT
 );
 
 -- Create new table -- 
@@ -71,3 +71,8 @@ vets_id BIGINT REFERENCES vets (id),
 animals_id BIGINT REFERENCES animals (id)
 date_of_visit DATE NOT NULL
 );
+
+-- Performance -- 
+CREATE INDEX ON owners (email);
+CREATE INDEX ON visits (vets_id);
+CREATE INDEX ON visits (animals_id);
