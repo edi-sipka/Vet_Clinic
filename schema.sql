@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS species;
 CREATE TABLE owners (
 	id SERIAL PRIMARY KEY,
 	full_name VARCHAR (50) NOT NULL,
-	age INT NOT NULL
+	age INT
 );
 
 -- Create new table -- 

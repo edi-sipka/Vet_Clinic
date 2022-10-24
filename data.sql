@@ -80,3 +80,5 @@ INSERT INTO visits (animal_id, vet_id, date_of_visit) SELECT * FROM (SELECT id F
 
 -- Insert new owners and emails-- 
 insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+
+ALTER TABLE owners ALTER COLUMN age INT NOT NULL;
