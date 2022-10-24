@@ -74,3 +74,5 @@ date_of_visit DATE NOT NULL
 
 -- Performance -- 
 CREATE INDEX ON owners (email);
+CREATE INDEX ON visits (vets_id);
+CREATE INDEX ON visits (animals_id);
